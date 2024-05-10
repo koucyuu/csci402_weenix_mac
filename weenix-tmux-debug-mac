@@ -1,0 +1,21 @@
+#!/bin/bash
+
+session_name="weenix-tmux-mac"
+
+RUNNING=`tmux list-sessions | grep "${session_name}:"`
+if [[ $RUNNING != "" ]]; then
+	echo "Session '${session_name}' already exists"
+else
+	# create 4 panes, one at the bottom, two on the left, and one on the right
+
+	# create a tmux session
+	tmux new-session -d -s ${session_name} './weenix-mac -d gdb -x'" $*"
+	# split the current pane vertically 95/5
+	tmux split-window -v -l 5%
+	# split the top pane horizontally 60/40
+	tmux split-window -h -t top -l 40% './weenix-mac -n -d gdb -y'" $*"
+
+	tmux select-pane -t left
+
+	tmux attach-session -d -t ${session_name}
+fi

@@ -1,0 +1,17 @@
+{
+    "shell_cmd": "export PATH=\\$(brew --prefix coreutils)/libexec/gnubin:\\$(brew --prefix binutils)/bin:\\$PATH && make -C $folder",
+    "keyfiles": ["weenix", "weenix-tmux-debug", "weenix-mac", "weenix-tmux-debug-mac"],
+    "env": {
+        "LC_ALL": "en_US.UTF-8"
+    },
+    "variants": [
+        {
+            "name": "clean",
+            "shell_cmd": "make -C $folder clean",
+        },
+        {
+            "name": "nyi",
+            "shell_cmd": "export PATH=\\$(brew --prefix findutils)/libexec/gnubin:\\$PATH && make -C $folder nyi",
+        },
+    ]
+}
