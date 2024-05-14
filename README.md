@@ -102,4 +102,4 @@ Press `⌘`+`⇧`+`B` to reselect default action.
 
 ### launch weenix in background when debugging (not becoming frontmost window)
 
-Install [QEMUBackground](https://github.com/brendonjkding/QEMUBackground).
+Install [QEMUBackground](https://github.com/koucyuu/QEMUBackground).
